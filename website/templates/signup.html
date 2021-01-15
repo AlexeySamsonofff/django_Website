@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Quality{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Login/Registration</h1>
+				<span>Login | Register | Guest</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Login - Registration</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+	<!-- Content		============================================= -->
+
+    <section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<div class="col_one_third nobottommargin">
+
+						<div class="well well-lg nobottommargin">
+							<form id="login-form" name="login-form" class="nobottommargin" action="#" method="post">
+
+								<h3>Login to your Account</h3>
+
+								{% csrf_token %}
+
+								<div class="col_full">
+									<label for="login-form-username">Email:</label>
+									{{ login.Email }}
+								</div>
+
+								<div class="col_full">
+									<label for="login-form-password">Password:</label>
+									{{ login.Password }}
+								</div>
+
+								<div class="col_full nobottommargin">
+									<button class="button button-3d nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+									<a href="#" class="fright">Forgot Password?</a>
+								</div>
+
+							</form>
+						</div>
+
+					</div>
+
+					<div class="col_two_third col_last nobottommargin">
+
+
+						<h3>Don't have an Account? Register Now.</h3>
+
+						<p>Register below for an account.</p>
+
+                        <h2>{{ html }}</h2>
+
+						<form id="register-form" name="register-form" class="nobottommargin" action="#" method="post">
+
+							{% csrf_token %}
+
+							<div class="col_half">
+								<label for="register-form-name">First Name:</label>
+								{{ form.FirstName }}
+							</div>
+
+                            <div class="col_half col_last">
+								<label for="register-form-name">Last Name:</label>
+								{{ form.LastName }}
+							</div>
+
+							<div class="col_half">
+								<label for="register-form-name">Email:</label>
+								{{ form.Email }}
+							</div>
+
+                            <div class="col_half col_last">
+								<label for="register-form-name">No/Street:</label>
+								{{ form.Street }}
+							</div>
+
+							<div class="col_half">
+								<label for="register-form-name">Area:</label>
+								{{ form.Area }}
+							</div>
+
+							<div class="col_half col_last">
+								<label for="register-form-name">City:</label>
+								{{ form.City }}
+							</div>
+
+                            <div class="col_half">
+								<label for="register-form-name">Post Code:</label>
+								{{ form.PostCode }}
+							</div>
+
+							<div class="col_half col_last">
+								<label for="register-form-name">Telephone:</label>
+								{{ form.Telephone }}
+							</div>
+
+                            <div class="col_half">
+								<label for="register-form-name">Password:</label>
+								{{ form.Password }}
+							</div>
+
+							<div class="col_half col_last">
+								<label for="register-form-name">Re-enter:</label>
+								{{ form.ReEnter }}
+							</div>
+
+                            <div class="col_full nobottommargin">
+								<button class="button button-3d button-black nomargin" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+							</div>
+
+						</form>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+
+    {% endblock %}
+

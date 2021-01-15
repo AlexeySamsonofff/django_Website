@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Orders{% endblock %}
+
+
+{% block head_scripts %}
+	<link rel="stylesheet" href="{% static '/css/components/bs-filestyle.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/components/responsive.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/spectrum.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/spectrum.min.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/docs.css' %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="clear"></div>
+<!-- Page Title -->
+<section id="page-title">
+	<div class="container clearfix">
+		<h1>Complete Your Order</h1>
+		<span>Pay by Credit Card or Bank Transfer</span>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Canvas Print Order</li>
+		</ol>
+	</div>
+</section>
+<!-- Page Title End -->
+
+<!-- Content -->
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="line d-block d-md-none"></div>
+				<!-- Step Process 1,2 ,3 ,4 ,5 -->
+			<ul class="process-steps process-5 clearfix">
+                <li>
+                    <a href="#" class="i-bordered i-circled divcenter icon-download-alt"></a>
+                    <h5>Upload Image</h5>
+                </li>
+                <li>
+                    <a href="#" class="i-bordered i-circled divcenter icon-pencil2"></a>
+                    <h5>Customise Image</h5>
+                </li>
+                <li>
+                    <a href="#" class="i-bordered i-circled divcenter icon-shopping-cart"></a>
+                    <h5>Review Cart</h5>
+                </li>
+                <li class="active">
+                    <a href="#" class="i-bordered i-circled divcenter bgcolor icon-like"></a>
+                    <h5>Complete Payment</h5>
+                </li>
+                <li>
+                    <a href="#" class="i-bordered i-circled divcenter icon-ok"></a>
+                    <h5>Order Complete</h5>
+                </li>
+            </ul>
+
+            {{ form.render }}
+        </div>
+	</div>
+</section>
+	<!-- #content end -->
+{% endblock %}
+{% block jquery %}
+	<script src="{% static '/js/ajax/ShoppingCart.js' %}"></script>
+	<script src="{% static '/js/Modal.js' %}"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+            $( "form" ).submit();
+		});
+	</script>
+{% endblock %}
+

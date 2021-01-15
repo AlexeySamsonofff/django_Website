@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Welcome to The Canvas Print Studio{% endblock %}
+
+{% block head_scripts %}
+    <style>
+		.revo-slider-emphasis-text {
+			font-size: 58px;
+			font-weight: 700;
+			letter-spacing: 1px;
+			font-family: 'Raleway', sans-serif;
+			padding: 15px 20px;
+			border-top: 2px solid #FFF;
+			border-bottom: 2px solid #FFF;
+		}
+
+		.revo-slider-desc-text {
+			font-size: 20px;
+			font-family: 'Lato', sans-serif;
+			width: 650px;
+			text-align: center;
+			line-height: 1.5;
+		}
+
+		.revo-slider-caps-text {
+			font-size: 16px;
+			font-weight: 400;
+			letter-spacing: 3px;
+			font-family: 'Raleway', sans-serif;
+		}
+
+		.tp-video-play-button { display: none !important; }
+
+		.tp-caption { white-space: nowrap; }
+	</style>
+{% endblock %}
+
+
+	<!-- Slider		============================================= -->
+	{% block rev_slider %}
+		<section id="slider" class="slider-element slider-parallax revslider-wrap clearfix">
+			<div class="slider-parallax-inner">
+				<!--
+				#################################
+					- THEMEPUNCH BANNER -
+				#################################
+				-->
+				<div id="rev_slider_k_fullwidth_wrapper" class="rev_slider_wrapper fullwidth-container"  style="padding:0px;">
+					<!-- START REVOLUTION SLIDER 5.1.4 fullwidth mode -->
+					<div id="rev_slider_k_fullwidth" class="rev_slider fullwidthbanner" style="display:none;" data-version="5.1.4">
+						<ul>
+							<li class="dark" data-transition="zoomout" data-slotamount="1" data-masterspeed="1500" data-thumb="{% static '/images/rev/stives-thumb.jpg' %}"  data-saveperformance="off"  data-title="Fixed-Size Video">
+									<!-- MAIN IMAGE -->
+									<img src="{% static '/images/rev/Xmas-Living-Room.jpg' %}"  alt="citybg" data-lazyload="{% static '/images/rev/Xmas-Living-Room.jpg' %}" data-bgposition="center top" data-scale="cover" data-bgrepeat="no-repeat">
+									<!-- LAYERS -->
+
+
+									<div class="tp-caption ltl tp-resizeme"
+										data-x="['right','right','right','right']" data-hoffset="['0','0','0','0']"
+										data-y="['top','top','top','top']" data-voffset="['310','210','0','100']"
+										data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
+										data-speed="800"
+										data-start="1550"
+										data-easing="easeOutQuad"
+										data-splitin="none"
+										data-splitout="none"
+										data-elementdelay="0.01"
+										data-endelementdelay="0.1"
+										data-endspeed="1000"
+										data-endeasing="Power4.easeIn">
+										<a href="{% url 'image_upload' %}" class="button button-xlarge button-circle button-canvasblue">Order Your Canvas <b>></b></a>
+
+									</div>
+
+									<div class="tp-caption ltl tp-resizeme revo-slider-desc-text tleft"
+									data-x="['right','right','right','right']" data-hoffset="['-100','0','0','0']"
+									data-y="['top','top','top','top']" data-voffset="['380','280','280','0']"
+									data-width="['310','310','480','400']"
+									data-fontsize="['14','14','20','20']"
+									data-transform_in="x:0;y:150;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;s:800;e:Power4.easeOutQuad;"
+									data-speed="800"
+									data-start="1400"
+									data-easing="easeOutQuad"
+									data-splitin="none"
+									data-splitout="none"
+									data-elementdelay="0.01"
+									data-endelementdelay="0.1"
+									data-endspeed="1000"
+										 data-color="['#116b9f']"
+									data-endeasing="Power4.easeIn" >
+										<strong style="font-size: 16px; white-space: normal;">Estimated dispatch: TBC</strong>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+	{% endblock %}
+
+    {% block content %}
+	<!-- Content		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+
+				<div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
+					<div class="container clearfix">
+						<h3>Call us today at <span>+44 (0)1432 355467</span> or Email us at <span>design@thecanvasprintstudio.co.uk</span></h3>
+						<span>We aim to provide Our Customers with Premium Handmade products using the leading industry products</span>
+						<a href="{% url 'image_upload' %}" class="button button-dark button-xlarge button-rounded">ORDER HERE</a>
+					</div>
+				</div>
+
+				<div class="container clearfix">
+
+					<div class="col_two_third bottommargin-lg">
+
+						<div class="fslider" data-arrows="false">
+							<div class="flexslider">
+								<div class="slider-wrap">
+									<div class="slide">
+										<a href="#">
+											<img src="{% static 'images/shop/slider/family.jpg' %}" alt="Shop Image">
+										</a>
+									</div>
+									<div class="slide">
+										<a href="#">
+											<img src="{% static 'images/shop/slider/stelvio.jpg' %}" alt="Shop Image">
+										</a>
+									</div>
+									<div class="slide">
+										<a href="#">
+											<img src="{% static 'images/shop/slider/AlpsWall.jpg' %}" alt="Shop Image">
+										</a>
+									</div>
+									<div class="slide">
+										<a href="#">
+											<img src="{% static 'images/shop/slider/wedding.jpg' %}" alt="Shop Image">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col_one_third bottommargin-lg col_last">
+
+						<div class="col_full bottommargin-sm">
+							<a href="#"><img src="{% static 'images/shop/banners/3canvas.jpg' %}" alt="Image"></a>
+						</div>
+
+						<div class="col_full nobottommargin">
+							<a href="#"><img src="{% static 'images/shop/banners/wrap.jpg' %}" alt="Image"></a>
+						</div>
+
+					</div>
+
+					<div class="clear"></div>
+
+				</div>
+
+
+
+
+
+				<div class="container clearfix">
+
+					<div class="clear bottommargin-sm"></div>
+
+						<div class="col_one_third">
+							<div class="fancy-title title-border">
+								<h4>Welcome to The Canvas Print Studio</h4>
+							</div>
+							<p>Welcome to our website, where we hope you will find all the help you need to bring your photos to life, get them printed and displayed. We create stretched and rolled canvas from your very own pictures or artwork.</p>
+						</div>
+
+						<div class="col_one_third subscribe-widget">
+							<div class="fancy-title title-border">
+								<h4>About Us</h4>
+							</div>
+							<p>Established in Hereford 2007, we have been providing the local community and the rest of the UK with quality, handmade, premium canvas prints. We are open to the trade and public we aim to delivery within 3 - 10 working days.</p>
+						</div>
+
+						<div class="col_one_third col_last">
+							<div class="fancy-title title-border">
+								<h4>Why Choose Us?</h4>
+							</div>
+							<img src="{% static '/images/trustpilot.jpg' %}" />
+						</div>
+					</div>
+				</div>
+
+
+			<div class="container clearfix">
+
+						<div class="col_one_third nobottommargin">
+							<div class="feature-box fbox-plain fbox-dark fbox-small">
+								<div class="fbox-icon">
+									<i class="icon-thumbs-up2"></i>
+								</div>
+								<h3>100% Original</h3>
+								<p class="notopmargin">We guarantee the use of original manufacturer inks.</p>
+							</div>
+						</div>
+
+						<div class="col_one_third nobottommargin">
+							<div class="feature-box fbox-plain fbox-dark fbox-small">
+								<div class="fbox-icon">
+									<i class="icon-credit-cards"></i>
+								</div>
+								<h3>Payment Options</h3>
+								<p class="notopmargin">We accept Visa, MasterCard, PayPal and bank transfer.</p>
+							</div>
+						</div>
+
+						<div class="col_one_third nobottommargin col_last">
+							<div class="feature-box fbox-plain fbox-dark fbox-small">
+								<div class="fbox-icon">
+									<i class="icon-truck2"></i>
+								</div>
+								<h3>Free Shipping</h3>
+								<p class="notopmargin">Free Next Day Delivery service available to mainland UK on <span>ALL</span> orders.</p>
+							</div>
+						</div>
+
+
+
+					</div>
+
+
+
+
+
+		</section><!-- #content end -->
+
+    {% endblock %}
+
+	{% block rev_js %}
+
+
+		<script>
+			var tpj=jQuery;
+			tpj.noConflict();
+
+			tpj(document).ready(function() {
+
+				var apiRevoSlider = tpj('#rev_slider_ishop').show().revolution(
+				{
+					sliderType:"standard",
+					jsFileLocation:"{% static '/rs-plugin/js/' %}",
+					sliderLayout:"fullwidth",
+					dottedOverlay:"none",
+					delay:9000,
+					navigation: {},
+					responsiveLevels:[1200,992,768,480,320],
+					gridwidth:1140,
+					gridheight:500,
+					lazyType:"none",
+					shadow:0,
+					spinner:"off",
+					autoHeight:"off",
+					disableProgressBar:"on",
+					hideThumbsOnMobile:"off",
+					hideSliderAtLimit:0,
+					hideCaptionAtLimit:0,
+					hideAllCaptionAtLilmit:0,
+					debugMode:false,
+					fallbacks: {
+						simplifyAll:"off",
+						disableFocusListener:false,
+					},
+					navigation: {
+						keyboardNavigation:"off",
+						keyboard_direction: "horizontal",
+						mouseScrollNavigation:"off",
+						onHoverStop:"off",
+						touch:{
+							touchenabled:"on",
+							swipe_threshold: 75,
+							swipe_min_touches: 1,
+							swipe_direction: "horizontal",
+							drag_block_vertical: false
+						},
+						arrows: {
+							style: "ares",
+							enable: true,
+							hide_onmobile: false,
+							hide_onleave: false,
+							tmp: '<div class="tp-title-wrap">	<span class="tp-arr-titleholder">{{title}}</span> </div>',
+							left: {
+								h_align: "left",
+								v_align: "center",
+								h_offset: 10,
+								v_offset: 0
+							},
+							right: {
+								h_align: "right",
+								v_align: "center",
+								h_offset: 10,
+								v_offset: 0
+							}
+						}
+					}
+				});
+
+				apiRevoSlider.bind("revolution.slide.onloaded",function (e) {
+					SEMICOLON.slider.sliderParallaxDimensions();
+				});
+
+			}); //ready
+
+		</script>
+	{% endblock %}
+
+
+	{% block jquery %}
+<script type="text/javascript">
+
+	$(document).ready(function() {
+
+		$('#home').addClass("current");
+
+		var tpj=jQuery;
+		tpj.noConflict();
+
+		tpj(document).ready(function() {
+
+			var apiRevoSlider = tpj('#rev_slider_k_fullwidth').show().revolution(
+			{
+				sliderType:"standard",
+				sliderLayout:"fullwidth",
+				delay:9000,
+				navigation: {
+					arrows:{enable:true}
+				},
+				responsiveLevels:[1240,1024,778,480],
+				visibilityLevels:[1240,1024,778,480],
+				gridwidth:[1240,1024,778,480],
+				gridheight:[600,768,960,720],
+			});
+
+			apiRevoSlider.bind("revolution.slide.onloaded",function (e) {
+				setTimeout( function(){ SEMICOLON.slider.sliderParallaxDimensions(); }, 400 );
+			});
+
+			apiRevoSlider.bind("revolution.slide.onchange",function (e,data) {
+				SEMICOLON.slider.revolutionSliderMenu();
+			});
+
+		});
+	});
+	</script>
+{% endblock %}

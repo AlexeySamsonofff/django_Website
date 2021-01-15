@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Quality{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Our Quality Assurance</h1>
+				<span>Using only the finest manufactured materials.</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Canvas Prints</li>
+					<li class="breadcrumb-item active" aria-current="page">Quality Assurance</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+	<!-- Content		============================================= -->
+    <section id="content">
+
+			<div class="content-wrap">
+
+
+				<!-- Quality Canvas Roll
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="col_two_third bottommargin-sm ">
+
+						<h3>Standard Canvas Print</h3>
+						<p>We use two types of canvas media. Both of them are from the American company - Breathing Colour.
+						Our standard 800M canvas is 450gsm, poly-cotton blend and is mainly designed for the reproduction of images for interior decoration purposes. It has high levels of Optical Brightening Agents (OBA's) which provide an extraordinary white point and better contrast. This canvas has a very good colour gamut and will be suitable for most applications. This canvas still produces quality looking canvas prints, only without an archival certificate. It is far superior to 99% of the polyester or cotton canvasses offered by competitors. It has medium texture, with Oxford 2-over-1 weave.</p>
+
+						<h3>Premium Canvas Print</h3>
+						<p>We use Breathing Colour Lyve Archival-Certified canvas as a premium option. This 450gsm media has an Archival Quality Certificate issued by the Fine Art Trade Guild, which means that the high quality and print permanence has been tested and confirmed. This canvas is widely used by many artists for Giclee printed limited editions of their prints, and also by photographers to serve customers who expect a perfect product that will last over 100 years. It is produced without the use of OBA's. It is acid free and has a neutral pH coating. Combined with the Timeless Satin varnish that we use, Lyve canvas offers the most archival photo and art reproduction available.</p>
+
+					</div>
+
+					<div class="col_one_third bottommargin-sm col_last">
+
+						<img src="{% static '/images/shop/canvasroll.png' %}" alt="Open Imagination">
+
+					</div>
+				</div>
+
+				<div class="divider divider-center"><a href="#" data-scrollto="#header"><i class="icon-chevron-up"></i></a></div>
+
+				<!-- Quality Stretcher Bars
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="col_two_third bottommargin-sm col_last ">
+
+						<h3>Stretcher Bars</h3>
+						<p>All our stretcher bars are 38mm deep European premium quality pine wood. These are made from finger jointed pieces of wood, are virtually knot-free and have a smooth finish. They compliment the premium finishing and high quality materials we use. Cross braces are used on all frames over 32" long. All canvasses are finished with backing tape and hangers.</p>
+
+						<h3>Ready to Hang</h3>
+						<p>All of our canvas prints come ready to hang - unlike many other companies, we believe a hanger is a basic part of the canvas print and do not charge extra for it.</p>
+
+					</div>
+
+					<div class="col_one_third bottommargin-sm">
+
+						<img src="{% static '/images/shop/bars.png' %}" alt="Open Imagination">
+
+					</div>
+				</div>
+
+				<div class="divider divider-center"><a href="#" data-scrollto="#header"><i class="icon-chevron-up"></i></a></div>
+
+				<!-- Quality Canvas Varnish
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="col_two_third bottommargin-sm ">
+
+						<h3>Canvas Varnish</h3>
+						<p>All of the canvas prints we produce receive two coats of museum grade varnish at no extra cost. As standard, we use Breathing Color Glamour II Gloss Giclee coating. It has been developed as a water based varnish which doesn't have the unpleasant smell specific to solvent based products.
+
+						A matte version is also available on request. There is also the possiblity to achieve a semi-matt or a semi-gloss finish. Please let us know your preference in the comment box at checkout.
+
+						There are many benefits to laminating your canvas:
+						<ul class="iconlist">
+							<li><i class="icon-ok"></i>improves the contrast of the picture.</li>
+							<li><i class="icon-ok"></i>enriches the colours.</li>
+							<li><i class="icon-ok"></i>increases UV resistance.</li>
+							<li><i class="icon-ok"></i>allows for the canvas to be wiped clean with a damp cloth.</li>
+							<li><i class="icon-ok"></i>prevents mould/fungus forming on the canvas.</li>
+							<li><i class="icon-ok"></i>protects the canvas from chipping and cracking.</li>
+						</ul>
+
+					</div>
+
+					<div class="col_one_third bottommargin-sm col_last">
+
+						<img src="{% static '/images/shop/varnish.png' %}" alt="Open Imagination">
+
+					</div>
+				</div>
+
+				<div class="divider divider-center"><a href="#" data-scrollto="#header"><i class="icon-chevron-up"></i></a></div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+    {% endblock %}
+
+{% block jquery %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#prints').addClass("current");
+	});
+</script>
+{% endblock %}

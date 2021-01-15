@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+    <meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="SemiColonWeb" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block styles %}
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/bootstrap.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/swiper.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/dark.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/font-icons.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/animate.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/magnific-popup.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/responsive.css' %}" type="text/css" />
+    <!-- Bootstrap Switch CSS -->
+	<link rel="stylesheet" href="{% static '/css/components/bs-switches.css' %}" type="text/css" />
+	<!-- Bootstrap Select CSS -->
+	<link rel="stylesheet" href="{% static '/css/components/bs-select.css' %}" type="text/css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Radio Checkbox Plugin -->
+	<link rel="stylesheet" href="{% static '/css/components/radio-checkbox.css' %}" type="text/css" />
+
+
+	<!-- Modal -->
+	<script src="{% static 'js/components/Modal/js/plugins.js' %}"></script>
+	<link rel="stylesheet" href="{% static '/js/components/Modal/css/lib/font-awesome/font-awesome.min.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/js/components/Modal/css/main.css' %}" type="text/css" />
+
+
+    {% endblock %}
+
+    {% block head_scripts %}{% endblock %}
+
+</head>
+<section class="stretched">
+	<!-- Document Wrapper	============================================= -->
+	<div id="wrapper" class="clearfix">
+		<!-- Header
+		============================================= -->
+		<header id="header">
+			<div id="header-wrap">
+				<div class="container clearfix">
+					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+					<!-- Logo
+					============================================= -->
+					<div id="logo">
+						<a href="{% url 'home' %}" class="standard-logo" data-dark-logo="{% static 'images/logo.png' %}"><img src="{% static 'images/logo.png' %}" alt="Canvas Logo"></a>
+						<a href="{% url 'home' %}" class="retina-logo" data-dark-logo="{% static 'images/logo.png' %}"><img src="{% static 'images/logo.png' %}" alt="Canvas Logo"></a>
+					</div><!-- #logo end -->
+
+					<!-- Primary Navigation
+					============================================= -->
+					<nav id="primary-menu" class="sub-title">
+						<ul>
+							<li id="home" ><a href="{% url 'home' %}"><div>Home</div><span>Welcome</span></a></li>
+
+							<li id="prints"><a href="#"><div>Our Canvas</div><span>Premium</span></a>
+								<ul>
+									<li><a href="{% url 'canvasprints' %}"><div><i class="icon-stack"></i>Canvas Prints</div></a></li>
+									<li><a href="{% url 'canvasquality' %}"><div><i class="icon-stack"></i>Quality Assurance</div></a></li>
+								</ul>
+							</li>
+
+							<li id="collections"><a href="{% url 'collections' %}"><div>Collections</div><span>and Images</span></a></li>
+
+							<li id="prices"><a href="{% url 'prices' %}"><div>Prices</div><span>and Sizes</span></a></li>
+
+							<li id="portfolio" class="mega-menu"><a href="#"><div>Resources</div><span>and Portfolio</span></a>
+								<div class="mega-menu-content style-2 clearfix">
+									<ul class="mega-menu-column col-lg-3">
+										<li class="mega-menu-title"><a href="#"><div>Trade Customers</div></a>
+											<ul>
+												<li><a href="{% url 'trade' %}"><div>Trade Partners</div></a></li>
+											</ul>
+										</li>
+									</ul>
+									<ul class="mega-menu-column col-lg-3">
+										<li class="mega-menu-title"><a href="#"><div>Social Media</div></a>
+											<ul>
+												<li><a href="{% url 'social_media' %}"><div>Portfolio</div></a></li>
+												<li><a href="{% url 'social_media' %}"><div>Facebook</div></a></li>
+												<li><a href="{% url 'social_media' %}"><div>Instagram</div></a></li>
+												<li><a href="{% url 'social_media' %}"><div>Twitter</div></a></li>
+											</ul>
+										</li>
+									</ul>
+									<ul class="mega-menu-column col-lg-3">
+										<li class="mega-menu-title"><a href="#"><div>Information</div></a>
+											<ul>
+												<li><a href="{% url 'contact' %}"><div>Contact Us</div></a></li>
+												<li><a href="{% url 'termsandconditions' %}"><div>Terms and Conditions</div></a></li>
+												<li><a href="{% url 'privacy_policy' %}"><div>Privacy Policy</div></a></li>
+											</ul>
+										</li>
+									</ul>
+									<ul class="mega-menu-column col-lg-3">
+										<li class="mega-menu-title"><a href="#"><div>Resources & Help</div></a>
+											<ul>
+												<li><a href="{% url 'faq' %}"><div>FAQ</div></a></li>
+												<li><a href="{% url 'trade' %}"><div>Custom Upload</div></a></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+							<li id="order"><a href="{% url 'image_upload' %}"><div>Order Now</div><span>Simplicity</span></a></li>
+
+						</ul>
+
+						<!-- Top Cart
+						============================================= -->
+						<div id="top-cart">
+							<a href="{% url 'cart:cart_detail' %}" id="top-cart-trigger">
+								<i class="icon-shopping-cart"></i>
+								{% with total_items=cart|length %}
+									{% if cart|length > 0 %}
+										<span>{{ total_items }}</span>
+									{% else %}
+										<span>0</span>
+									{% endif %}
+								{% endwith %}
+							</a>
+						</div><!-- #top-cart end -->
+
+						<!-- Top Search
+						============================================= -->
+						<div id="top-search">
+							<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+							<form action="search.html" method="get">
+								<input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+							</form>
+						</div><!-- #top-search end -->
+					</nav><!-- #primary-menu end -->
+				</div>
+			</div>
+		</header><!-- #header end -->
+
+			{% block rev_slider %}{% endblock %}
+
+	    	{% block content %}{% endblock %}
+
+
+
+		<footer id="footer" class="dark">
+			<div class="container">
+
+				<!-- Footer Widgets 			============================================= -->
+				<div class="footer-widgets-wrap clearfix">
+					<div class="col_one_third">
+						<div class="widget clearfix">
+							<!-- <img src="<?php echo $link; ?>styling/images/logo/logo.png" alt="" class="footer-logo"> -->
+							<p>We believe in <strong>Quality</strong>, <strong>Premium</strong> &amp; <strong>Hand Made</strong> Canvas Prints.</p>
+
+							<div style="background: url('images/world-map.png') no-repeat center center; background-size: 100%;">
+								<address>
+									<strong>Address:</strong><br>
+									34 Staddlestone Circle,<br>
+									Hereford, HR2 6SB, UK<br>
+								</address>
+								<abbr title="Phone Number"><strong>Phone:</strong></abbr> (44) 1432 355 467<br>
+								<abbr title="Fax"><strong>Mobile:</strong></abbr> (44) 7917 800 479<br>
+								<abbr title="Email Address"><strong>Email:</strong></abbr> design@thecanvasprintstudio.co.uk
+							</div>
+						</div>
+					</div>
+
+					<div class="col_one_third">
+						<div class="widget widget_links clearfix">
+							<h4>Quick Links</h4>
+							<ul>
+								<li><a href="{% url 'image_upload' %}">Order</a></li>
+								<li><a href="{% url 'cart:cart_detail' %}">Checkout</a></li>
+								<li><a href="{% url 'termsandconditions' %}">Terms & Conditions</a></li>
+								<li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+								<li><a href="{% url 'contact' %}">Contact Us</a></li>
+								<li><a href="{% url 'contact' %}">login</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col_one_third col_last">
+						<div class="widget subscribe-widget clearfix">
+							<h5><strong>Subscribe</strong> to Our Newsletter to get Important News and amazing discounts:</h5>
+							<div class="widget-subscribe-form-result"></div>
+							<form action="" method="post" class="SubscribeForm">
+								{% csrf_token %}
+								<div class="input-group divcenter">
+									<div class="input-group-prepend">
+										<div class="input-group-text"><i class="icon-email2"></i></div>
+									</div>
+									<input type="email" id="txtSubscribe" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
+									<div class="input-group-append">
+										<button id="btnSubscribe" type="button" class="btn btn-success">Subscribe</button>
+									</div>
+								</div>
+							</form>
+						</div>
+
+						<div class="widget clearfix" style="margin-bottom: -20px;">
+							<div class="row">
+								<div class="col-lg-6 clearfix bottommargin-sm">
+									<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
+										<i class="icon-facebook"></i>
+										<i class="icon-facebook"></i>
+									</a>
+									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
+								</div>
+								<div class="col-lg-6 clearfix">
+									<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
+										<i class="icon-instagram"></i>
+										<i class="icon-instagram"></i>
+									</a>
+									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Follow us</strong><br>on Instagram</small></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- .footer-widgets-wrap end -->
+			</div>
+
+			<!-- Copyrights			============================================= -->
+			<div id="copyrights">
+				<div class="container clearfix">
+					<div class="col_half">
+						Copyright &copy; {% now 'Y' %} -  All Rights Reserved by The Canvas Print Studio.<br>
+						<div class="copyright-links"><a href="#">Terms of Use</a> / <a href="{% url 'privacy_policy' %}">Privacy Policy</a></div>
+					</div>
+				</div>
+			</div><!-- #copyrights end -->
+
+		</footer><!-- #footer end -->
+
+	</div> <!-- End Wrapper -->
+
+		<!-- Go To Top	============================================= -->
+		<div id="gotoTop" class="icon-angle-up"></div>
+
+		<!-- Subscribe JavaScripts	============================================= -->
+		<script src="{% static '/js/ajax/Subscribe.js' %}"></script>
+
+		<script src="{% static '/js/Modal.js' %}"></script>
+
+		<!-- External JavaScripts	============================================= -->
+		<script src="{% static '/js/jquery.js' %}"></script>
+		<script src="{% static '/js/plugins.js' %}"></script>
+
+
+		<!-- Footer Scripts	============================================= -->
+		<!-- Bootstrap Switch Plugin -->
+		<script src="{% static '/js/components/bs-switches.js' %}"></script>
+
+		<!-- Bootstrap Select Plugin -->
+		<script src="{% static '/js/components/bs-select.js' %}"></script>
+
+		<!-- Select Splitter Plugin -->
+		<script src="{% static '/js/components/selectsplitter.js' %}"></script>
+		<script src="{% static '/js/functions.js' %}"></script>
+
+		<!-- Model Plugin -->
+		<script src="{% static '/js/Modal.js' %}"></script>
+
+		<script>
+			jQuery(".bt-switch").bootstrapSwitch();
+			$('.selectsplitter').selectsplitter();
+		</script>
+
+		<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
+		<script src="{% static '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.video.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.actions.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.migration.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.video.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.slideanims.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.actions.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.kenburn.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.navigation.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.migration.min.js' %}"></script>
+		<script src="{% static '/plugins/rs-plugin/js/extensions/revolution.extension.parallax.min.js' %}"></script>
+
+
+
+		{% block rev_js %}{% endblock %}
+
+		{% block jquery %}{% endblock %}
+</body>
+</html>
+
+

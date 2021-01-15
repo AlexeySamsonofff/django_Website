@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Orders{% endblock %}
+
+
+{% block head_scripts %}
+	<link rel="stylesheet" href="{% static '/css/components/bs-filestyle.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/components/responsive.css' %}" type="text/css" />
+{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Start Your Order</h1>
+				<span>Use the form below to upload any large files</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Canvas Print Order</li>
+				</ol>
+			</div>
+		</section>
+		<!-- Page Title End -->
+
+	<!-- Content -->
+    <section id="content">
+		<div class="content-wrap">
+			<div class="container clearfix">
+				<div class="line d-block d-md-none"></div>
+				<!-- Step Process 1,2 ,3 ,4 ,5 -->
+				<ul class="process-steps process-5 clearfix">
+					<li class="active">
+						<a href="#" class="i-bordered i-circled divcenter icon-download-alt"></a>
+						<h5>Upload Image</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-pencil2"></a>
+						<h5>Customise Image</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-shopping-cart"></a>
+						<h5>Review Cart</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter bgcolor icon-like"></a>
+						<h5>Complete Payment</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-ok"></a>
+						<h5>Order Complete</h5>
+					</li>
+				</ul>
+
+				<div id="orderStep1" >
+					<!-- Upload Form -->
+					<div class="accordion accordion-border clearfix">
+						<div class="toggle">
+							<div class="acctitle" id="accStepOne">
+									<i class="acc-closed icon-ok-circle"></i>
+									<i class="acc-open icon-remove-circle"></i>
+									<label>Choose an Image to Upload:</label>
+								</div>
+							<div class="acc_content clearfix">
+								<div class="col_two_third">
+										<input id="file" name="file" type="file" class="file" multiple data-show-upload="false" data-show-caption="true" data-show-preview="true">
+										<br>
+										<div class="progress" style="height:30px;">
+				                            <div class="progress-bar progress-bar-success myprogress" role="progressbar" style="width:0%;">0%</div>
+				                        </div>
+									</div>
+								<div class="col_one_third col_last">
+									<label>Proffessionally Produced Canvas Prints</label>
+									<ul class="iconlist">
+										<li><i class="icon-ok"></i>Printed at 2880 dpi using latest Epson Printers</li>
+										<li><i class="icon-ok"></i>450 gsm Poly-Cotton blend canvas or</li>
+										<li><i class="icon-ok"></i>Archival quality Chromata White Canvas</li>
+										<li><i class="icon-ok"></i>Museum Grade Varnish</li>
+										<li><i class="icon-ok"></i>38mm (1.5") frame depth</li>
+										<li><i class="icon-ok"></i>Colour calibrated workflow</li>
+										<li><i class="icon-ok"></i>Ready to hang out of the box</li>
+										<li><i class="icon-ok"></i>Free proofs on products over £100.</li>
+										<li><i class="icon-ok"></i>Free delivery on all orders in the UK</li>
+									</ul>
+									<button id="btnUpload" type="button" class="button button-desc button-3d button-rounded button-canvasblue center" data-notify-type="error">Upload Image</button>
+								</div>
+							</div>
+							<div class="acctitle" id="accStepTwo">
+		                			<i class="acc-closed icon-ok-circle"></i>
+		                			<i class="acc-open icon-remove-circle"></i>
+		                			<label>Image Summary</label>
+		                		</div>
+							<div class="acc_content clearfix">
+					            <!-- Image Preview -->
+								<div class="col_two_third" id="ImagePreview"></div>
+								<div class="col_one_third col_last">
+									<div class="col_full" id="ImageDetails"></div>
+									<div class="col_full" id="divStep2btn">
+										<button id="btnStep2" type="button" class="button button-desc button-3d button-rounded button-canvasblue center">
+											Next</button>
+										<input type="hidden" id="txtImgName" />
+										<input type="hidden" id="txtImgW" />
+										<input type="hidden" id="txtImgH" />
+										<input type="hidden" id="txtInchW" />
+										<input type="hidden" id="txtInchH" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Content End -->
+    {% endblock %}
+{% block jquery %}
+	<script src="{% static '/js/ajax/FileUpload.js' %}"></script>
+	<script src="{% static '/js/components/bs-filestyle.js' %}"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#btnStep2').hide();
+		});
+	</script>
+{% endblock %}
+

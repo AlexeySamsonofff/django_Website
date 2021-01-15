@@ -1,0 +1,420 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+	<title>The Canvas print Studio - Canvas Order Invoice</title>
+	<style type="text/css">
+.ReadMsgBody { width: 100%; background-color: #ffffff; }
+.ExternalClass { width: 100%; background-color: #ffffff; }
+.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
+html { width: 100%; }
+body { -webkit-text-size-adjust: none; -ms-text-size-adjust: none; margin: 0; padding: 0; }
+table { border-spacing: 0; border-collapse: collapse; table-layout: fixed; margin:0 auto; }
+table table table { table-layout: auto; }
+img { display: block !important; }
+table td { border-collapse: collapse; }
+.yshortcuts a { border-bottom: none !important; }
+a { color: #116c9f; text-decoration: none; }
+.textbutton a { font-family: 'open sans', arial, sans-serif !important; color: #ffffff !important; }
+.footer-link a { color: #7f8c8d !important; }
+</style>
+</head>
+
+<body>
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#ffffff">
+
+		<!-- header -->
+
+		<tr>
+			<td align="center">
+				<table bgcolor="#f8f8f8" width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tr align="center" valign="top">
+						<td>
+							<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="208" align="center" valign="top" >
+										<table width="158" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td height="50"></td>
+											</tr>
+											<!-- logo -->
+											<tr>
+												<td align="center" style="line-height:0px;">
+													<img style="display:block;font-size:0px; border:0px; line-height:0px;" src="http://www.thecanvasprintstudio.co.uk/email/logo.png" width="259" height="116" alt="logo" />
+												</td>
+											</tr>
+											<!-- end logo -->
+
+											<tr>
+												<td height="40"></td>
+											</tr>
+
+											<!-- Compane Name -->
+											<tr>
+												<td style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#116c9f; line-height:26px; font-weight: bold;">
+                                                    <strong>The Canvas Print Studio</strong>
+                                                </td>
+											</tr>
+											<!-- end Compane Name -->
+
+											<tr>
+												<td height="5"></td>
+											</tr>
+
+											<!-- address -->
+											<tr>
+												<td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px;">
+													34 Staddlestone Circle
+													<br />
+													Hereford, HR2 6SB, United Kingdom
+												</td>
+											</tr>
+											<!-- end address -->
+
+											<tr>
+												<td height="25"></td>
+											</tr>
+										</table>
+									</td>
+									<td width="392" align="center" valign="top">
+										<table width="342" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td height="50"></td>
+											</tr>
+
+											<!-- title -->
+											<tr>
+												<td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:38px; color:#3116c9f; line-height:26px;">INVOICE</td>
+											</tr>
+											<!-- end title -->
+
+											<tr>
+												<td height="25"></td>
+											</tr>
+											<tr>
+												<td align="right">
+													<table align="right" width="50" border="0" cellpadding="0" cellspacing="0">
+														<tr>
+															<td bgcolor="#116c9f" height="3" style="line-height:0px; font-size:0px;">&nbsp;</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td height="15"></td>
+											</tr>
+											<!-- Compane Name -->
+											<tr>
+												<td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#116c9f; line-height:26px; font-weight: bold;">
+                                                    {{ name }}
+                                                </td>
+											</tr>
+											<!-- end Compane Name -->
+
+											<tr>
+												<td height="5"></td>
+											</tr>
+
+											<!-- address -->
+											<tr>
+												<td align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+													{{ address1 }}
+													<br />
+													{{ address2 }}
+													<br />
+													Job number :
+													<span style="color:#116c9f"> <strong>{{ order_no }}</strong></span>
+													<br />
+													Payment Method :
+													<span style="color:#116c9f"> <strong>{{ payment_method }}</strong></span>
+												</td>
+											</tr>
+											<!-- end address -->
+
+											<tr>
+												<td height="25"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<!-- end header -->
+
+
+		<!-- title -->
+
+		<tr>
+			<td align="center">
+				<table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="center" style="border-bottom:3px solid #bcbcbc;">
+							<table align="center" width="550" border="0" cellspacing="0" cellpadding="0">
+								<tr>
+									<td height="50"></td>
+								</tr>
+
+								<!-- header -->
+								<tr>
+									<td>
+										<table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="263" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px; text-transform:uppercase;">description</td>
+												<td width="87" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px; text-transform:uppercase;">PRICE</td>
+												<td width="87" align="center" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px; text-transform:uppercase;">AMOUNT</td>
+												<td width="87" align="right" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px; text-transform:uppercase;">TOTAL</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<!-- end header -->
+								<tr>
+									<td height="10"></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<!-- end title -->
+
+        {% for item in cart %}
+            <!-- list -->
+            <tr>
+                <td align="center">
+                    <table width="600" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td align="center" style="border-bottom:1px solid #ecf0f1;">
+                                <table width="550" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td height="35"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="263" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#116c9f;
+                                                    line-height:26px;  font-weight: bold;">{{ item.canvas }}</td>
+                                                    <td width="87" align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#116c9f;
+                                                    line-height:26px;  font-weight: bold;">£{{ item.linetotal|floatformat:"2" }}</td>
+                                                    <td width="87" align="center" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#116c9f;
+                                                    line-height:26px;  font-weight: bold;">{{ item.quantity }}</td>
+                                                    <td width="87" align="right" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:14px; color:#116c9f;
+                                                    line-height:26px;  font-weight: bold;">£{{ item.linetotal|floatformat:"2" }}</td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="5"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="5"></td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <table width="550" border="0" align="center" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#7f8c8d; line-height:26px;">{{ description }}
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <!-- end list -->
+        {% endfor %}
+
+		<!-- total -->
+		<tr>
+			<td align="center">
+				<table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td align="center" height="40" style="border-bottom:3px solid #116c9f;"></td>
+					</tr>
+					<tr>
+						<td height="15"></td>
+					</tr>
+					<tr>
+						<td align="center">
+							<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td width="25%" align="center" valign="top" bgcolor="#f8f8f8">
+										<table width="" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td height="10"></td>
+											</tr>
+											<tr>
+												<td align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#116c9f; line-height:26px; text-transform:uppercase;line-height:24px;">Sub Total</td>
+											</tr>
+											<tr>
+												<td align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#116c9f;  font-weight: ;">
+													£{{ cart.get_total_price|floatformat:"2" }}</td>
+											</tr>
+											<tr>
+												<td height="15"></td>
+											</tr>
+										</table>
+									</td>
+									<td width="25%" align="center" valign="top" bgcolor="#f8f8f8">
+										<table width="" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td height="10"></td>
+											</tr>
+											<tr>
+												<td align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#116c9f; line-height:26px; text-transform:uppercase;line-height:24px;">Delivery</td>
+											</tr>
+											<tr>
+												<td align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#116c9f;  font-weight: ;">
+													£0.00</td>
+											</tr>
+											<tr>
+												<td height="15"></td>
+											</tr>
+										</table>
+									</td>
+									<td width="25%" align="center" valign="top" bgcolor="#f8f8f8">
+										{% if cart.coupon %}
+											<table width="" border="0" align="center" cellpadding="0" cellspacing="0">
+												<tr>
+													<td height="10"></td>
+												</tr>
+												<tr>
+													<td align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#116c9f; line-height:26px; text-transform:uppercase;line-height:24px;">Discount {{ cart.coupon.discount }}% off</td>
+												</tr>
+												<tr>
+													<td align="left" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#116c9f;  font-weight: ;">£{{ cart.get_discount|floatformat:"2" }}</td>
+												</tr>
+												<tr>
+													<td height="15"></td>
+												</tr>
+											</table>
+										{% endif %}
+									</td>
+									<td width="25%" align="center" valign="top" bgcolor="#e1e6e7">
+										<table width="" border="0" align="center" cellpadding="0" cellspacing="0">
+											<tr>
+												<td height="10"></td>
+											</tr>
+											<tr>
+												<td align="right" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:12px; color:#116c9f; line-height:26px; text-transform:uppercase;line-height:24px;">Total</td>
+											</tr>
+											<tr>
+												<td align="right" valign="top" style="font-family: 'Open Sans', Arial, sans-serif; font-size:24px; color:#116c9f;  font-weight: bold;">£ {{ cart.get_total_price_after_discount|floatformat:"2" }}</td>
+											</tr>
+											<tr>
+												<td height="15"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td height="15"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<!-- end total -->
+
+		<!-- note -->
+		<tr>
+			<td align="center">
+				<table align="center" width="600" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td height="40"></td>
+					</tr>
+
+					<!-- title -->
+					<tr>
+						<td style="font-family: 'Open Sans', Arial, sans-serif; font-size:16px; color:#3116c9f; line-height:26px;  font-weight: bold; text-transform:uppercase">Notes</td>
+					</tr>
+					<!-- end title -->
+					<tr>
+						<td height="5"></td>
+					</tr>
+
+					<!-- content -->
+					<tr>
+						<td style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#7f8c8d; line-height:26px;">
+							{{ instructions }}
+						</td>
+					</tr>
+					<!-- end content -->
+
+					<tr>
+						<td height="15" style="border-bottom:3px solid #bcbcbc;"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<!-- end note -->
+
+		<!-- footer -->
+		<tr>
+			<td align="center">
+				<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tr>
+						<td height="15" align="center" valign="top" style="border-bottom:10px solid #ecf0f1;">
+							<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+								<tr>
+									<td height="25"></td>
+								</tr>
+
+
+
+                                    <tr>
+                                        <td align="center" valign="top">
+                                            <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td width="11" align="center" style="line-height:0px;">
+                                                        <img style="display:block;font-size:0px; border:0px; line-height:0px;" src="http://www.thecanvasprintstudio.co.uk/email/phone.png" width="11" height="11" alt="img" />
+                                                    </td>
+                                                    <td width="10"></td>
+                                                    <td class="footer-link" width="150" align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px;">+44 1432 355 467</td>
+                                                    <td width="20"></td>
+                                                    <td width="11" align="center" style="line-height:0px;">
+                                                        <img style="display:block;font-size:0px; border:0px; line-height:0px;" src="http://www.thecanvasprintstudio.co.uk/email/mail.png" width="14" height="11" alt="img" />
+                                                    </td>
+                                                    <td width="10"></td>
+                                                    <td class="footer-link" width="120" align="left" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px;">design@thecanvasprintstudio.co.uk</td>
+                                                    <td class="footer-link" width="300" align="right" style="font-family: 'Open Sans', Arial, sans-serif; font-size:13px; color:#116c9f; line-height:26px;">
+
+
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+
+
+								<tr>
+									<td height="25"></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<!-- end footer -->
+
+	</table>
+</body>
+</html>

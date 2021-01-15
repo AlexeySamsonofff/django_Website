@@ -1,0 +1,422 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Orders{% endblock %}
+
+
+{% block head_scripts %}
+	<link rel="stylesheet" href="{% static '/css/components/bs-filestyle.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/components/responsive.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/spectrum.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/spectrum.min.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/docs.css' %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="clear"></div>
+<!-- Page Title -->
+<section id="page-title">
+	<div class="container clearfix">
+		<h1>Complete Your Order</h1>
+		<span>Pay by Credit Card or Bank Transfer</span>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Canvas Print Order</li>
+		</ol>
+	</div>
+</section>
+<!-- Page Title End -->
+
+<!-- Content -->
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="line d-block d-md-none"></div>
+				<!-- Step Process 1,2 ,3 ,4 ,5 -->
+			<ul class="process-steps process-5 clearfix">
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-download-alt"></a>
+						<h5>Upload Image</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-pencil2"></a>
+						<h5>Customise Image</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-shopping-cart"></a>
+						<h5>Review Cart</h5>
+					</li>
+					<li class="active">
+						<a href="#" class="i-bordered i-circled divcenter bgcolor icon-like"></a>
+						<h5>Complete Payment</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-ok"></a>
+						<h5>Order Complete</h5>
+					</li>
+				</ul>
+
+			<form action="." method="post" class="order-form" name="frmCheckout" id="frmCheckout">
+				{% csrf_token %}
+
+				<div id="orderStep4">
+					<div class="row clearfix">
+
+						{% if cancel == True %}
+							<div class="alert alert-danger">
+							  <i class="icon-warning-sign"></i>
+								<strong>There was an error with you payment!</strong>
+								Please try again to complete the order.
+							</div>
+
+						{% endif %}
+
+						<div class=" col-lg-6">
+							<p><strong>Billing Address</strong></p>
+							<label class="bottommargin">Please enter your details below:</label>
+
+							<div class="nobottommargin col_half">
+								<label for="p-0">First Name:</label><label id="lbl-p-0">*</label>
+								<input type="text" id="p-0" name="p-0" value="" class="sm-form-control" />
+
+								<label for="p-2">House:</label><label id="lbl-p-2">*</label>
+								<input type="text" id="p-2" name="p-2" value="" class="sm-form-control" />
+
+							</div>
+
+							<div class="nobottommargin col_half col_last">
+								<label for="p-1">Last Name:</label><label id="lbl-p-1">*</label>
+								<input type="text" id="p-1" name="p-1" value="" class="sm-form-control" />
+
+								<label for="p-6">PostCode:</label><label id="lbl-p-6">*</label>
+								<input type="text" id="p-6" name="p-6" value="" class="sm-form-control" />
+
+							</div>
+
+							<div class="clear"></div>
+
+							<div class="nobottommargin col_full">
+								<label for="p-3">Street:</label><label id="lbl-p-3">*</label>
+								<input type="text" id="p-3" name="p-3" value="" class="sm-form-control" />
+							</div>
+
+							<div class="col_half">
+								<label for="p-4">Area:</label>
+								<input type="text" id="p-4" name="p-4" value="" class="sm-form-control" />
+
+								<label for="p-8">Email:</label><label id="lbl-p-8">*</label>
+								<input type="text" id="p-8" name="p-8" value="" class="sm-form-control" />
+							</div>
+							<div class="col_half col_last">
+								<label for="p-5">Town:</label><label id="lbl-p-5">*</label>
+								<input type="text" id="p-5" name="p-5" value="" class="sm-form-control" />
+
+								<label for="p-7">Telephone:</label><label id="lbl-p-7">*</label>
+								<input type="text" id="p-7" name="p-7" value="" class="sm-form-control" />
+								<input type="hidden" id="txtShipping" name="txtShipping" value="NO" class="sm-form-control" />
+							</div>
+						</div>
+
+						<div class=" col-lg-6 col_last">
+							<p><strong>Shipping Address</strong></p>
+							<div class="bottommargin form-check">
+								<input class="form-check-input" type="checkbox" value="ON" name="chkShippingAddress" id="chkShippingAddress">
+								<label class="form-check-label" for="chkShippingAddress">
+									Ship to a different address
+								</label>
+							</div>
+
+							<div id="ShippingAddress">
+								<div class="col_half">
+									<label for="d-0">First Name:</label><label id="lbl-d-0">*</label>
+									<input type="text" id="d-0" name="d-0" value="" class="sm-form-control" />
+
+									<label for="d-2">House:</label><label id="lbl-d-2">*</label>
+									<input type="text" id="d-2" name="d-2" value="" class="sm-form-control" />
+
+									<label for="d-3">Street:</label><label id="lbl-d-3">*</label>
+									<input type="text" id="d-3" name="d-3" value="" class="sm-form-control" />
+
+									<label for="d-5">Town:</label><label id="lbl-d-5">*</label>
+									<input type="text" id="d-5" name="d-5" value="" class="sm-form-control" />
+								</div>
+								<div class="col_half col_last">
+									<label for="d-1">Last Name:</label><label id="lbl-d-1">*</label>
+									<input type="text" id="d-1" name="d-1" value="" class="sm-form-control" />
+
+									<label for="d-6">PostCode:</label><label id="lbl-d-6">*</label>
+									<input type="text" id="d-6" name="d-6" value="" class="sm-form-control" />
+
+									<label for="d-4">Area:</label>
+									<input type="text" id="d-4" name="d-4" value="" class="sm-form-control" />
+
+									<label for="d-7">Telephone:</label><label id="lbl-d-7">*</label>
+									<input type="text" id="d-7" name="d-7" value="" class="sm-form-control" />
+
+								</div>
+
+
+							</div>
+						</div>
+
+						<div class="w-100 bottommargin"></div>
+						<div class="col_two_third">
+							<p><strong>Order No:</strong> <span class="highlight">{{ order_no }}</span></p>
+
+							<div class="table-responsive">
+								<table class="table cart">
+									<thead>
+										<tr>
+											<th class="notopborder cart-product-thumbnail">&nbsp;</th>
+											<th class="notopborder cart-product-name">Canvas</th>
+											<th class="notopborder cart-product-quantity">Quantity</th>
+											<th class="notopborder cart-product-subtotal">Total</th>
+										</tr>
+									</thead>
+									<tbody>
+										{% for item in cart %}
+											<tr class="cart_item">
+												<td class="cart-product-thumbnail">
+													<img width="64" height="64" src="{{ item.Img }}" alt=""></a>
+												</td>
+
+												<td class="cart-product-name">
+													{{ item.canvas }}
+													{% if item.proof == '1' %}
+														<br /><i>Including proof {{ item.notes }}</i>
+
+													{% endif %}
+												</td>
+
+												<td class="cart-product-quantity">
+													<div class="quantity clearfix">
+														{{ item.quantity }}
+													</div>
+												</td>
+
+												<td class="cart-product-subtotal">
+													<span class="amount">£{{ item.linetotal|floatformat:"2" }}</span>
+												</td>
+											</tr>
+										{% endfor %}
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="col_one_third col_last">
+							<p><strong>Cart Totals</strong></p>
+
+							<div class="table-responsive">
+								<table class="table cart">
+									<tbody>
+										<tr class="cart_item">
+											<th class="notopborder cart-product-name">
+												<strong>Subtotal</strong>
+											</th>
+
+											<th class="notopborder cart-product-name">
+												<span class="amount">£{{ cart.get_total_price|floatformat:"2" }}</span>
+											</th>
+										</tr>
+
+										{% if cart.coupon %}
+											<tr class="cart_item">
+												<th class="cart-product-name">
+													<strong>
+														"{{ cart.coupon.code }}" coupon
+														({{ cart.coupon.discount }}% off)
+													</strong>
+												</th>
+
+												<th class="cart-product-name">
+													<span class="amount"><strong>- £{{ cart.get_discount|floatformat:"2" }}</strong></span>
+
+												</th>
+											</tr>
+										{% endif %}
+
+										<tr class="cart_item">
+											<th class="cart-product-name">
+												<strong>Shipping</strong>
+											</th>
+
+											<td class="cart-product-name">
+												<span class="amount">Free Delivery</span>
+											</td>
+										</tr>
+										<tr class="cart_item">
+											<th class="cart-product-name">
+												<strong>Total</strong>
+											</th>
+
+											<td class="cart-product-name">
+												<span class="amount color lead"><strong>£{{ cart.get_total_price_after_discount|floatformat:"2" }}</strong></span>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+
+							<h4>Payment Options</h4>
+
+							<div class="col_full">
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="radPayment" id="radPayment1" value="Bank Transfer">
+									<label class="form-check-label" for="radPayment1">
+										Bank Transfer
+									</label>
+								</div>
+
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="radPayment" id="radPayment2" value="PayPal" checked>
+									<label class="form-check-label" for="radPayment2">
+										Credit Card/PayPal
+									</label>
+								</div>
+							</div>
+
+							<div class="col_full">
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input" id="chkTerms">
+									<label class="form-check-label" for="exampleCheck1">
+										I agree to the
+										<a href="" data-toggle="modal" data-target=".bs-example-modal-lg">
+											Terms and Conditions
+										</a>
+									</label>
+								</div>
+							</div>
+
+
+
+							<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg">
+								<div class="modal-body">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title" id="myModalLabel">Terms and Conditions</h4>
+											<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+										</div>
+										<div class="modal-body">
+											<div id="accordion" role="tablist">
+												<div class="card">
+
+													{%	for terms in tandc %}
+
+													<div class="card-header" role="tab" id="{{ terms.id }}">
+														<h5 class="mb-0">
+															<a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+																{{ terms.id }} - {{ terms.Header }}
+															</a>
+														</h5>
+													</div>
+
+													<div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="{{ terms.id }}" data-parent="#accordion">
+														<div class="card-body">
+															{{ terms.Detail }}
+														</div>
+													</div>
+
+													{% endfor %}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+							<div class="col-lg-12 col-12 nopadding">
+								<button type="submit" class="button button-3d fright">Place Order</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</section>
+	<!-- #content end -->
+{% endblock %}
+{% block jquery %}
+	<script src="{% static '/js/ajax/ShoppingCart.js' %}"></script>
+	<script src="{% static '/js/Modal.js' %}"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$('#ShippingAddress').hide();
+
+			$('#chkShippingAddress'). click(function(){
+				if($(this). is(":checked")){
+					$('#ShippingAddress').show();
+					clearDeliveryForm();
+					$('#txtShipping').val('YES');
+				}else{
+					$('#ShippingAddress').hide();
+					$('#txtShipping').val('NO');
+				}
+			});
+
+			// Place an Order
+			$('form').submit(function(e){
+				e.preventDefault();
+				error = false;
+
+				if ( checkForm("p", 9) == true ) {
+					strError = "Please enter Billing details! \n";
+					error = true;
+				}
+
+				if($('#chkShippingAddress') .is(":checked")){
+					//if (error == false) {
+						if ( checkForm("d", 8) == true ) {
+							strError = strError + "Please enter Alternative Delivery details! \n";
+							error = true;
+						}
+					//}
+				}
+
+				if(!$('#chkTerms') .is(":checked")){
+					error = true;
+					strError = strError + "Please Agree to our Terms and Conditions! \n";
+					console.log ("not CLicked");
+				}
+
+				if (error == false)
+					document.forms["frmCheckout"].submit();
+				else
+					showNotification(e, "Missing Details", strError, "warning", "btn-error", "OK");
+
+			});
+
+			$('input[type="radio"]'). click(function(){
+				if ($("input[id='radPayment1']:checked").val()) {
+					console.log("Bank Transfer");
+				}else if ($("input[id='radPayment2']:checked").val()) {
+					console.log("PayPal");
+				}
+			});
+
+			function checkForm(id, k){
+				error = false;
+				for (i=0; i<k; i++) {
+					if ( i != 4 )
+						if ( $('#' + id + '-' + i).val() == '' ){
+							$('#lbl-' + id + '-' + i).html('<span class="badge badge-pill badge-danger">Required</span>');
+							error = true
+						}else{
+							$('#lbl-' + id + '-' + i).html('*');
+						}
+				}
+
+				return error;
+			}
+
+			function clearDeliveryForm(){
+				for (i=0; i<8; i++)
+					$('#d-' + i).val('');
+			}
+
+		});
+	</script>
+{% endblock %}
+

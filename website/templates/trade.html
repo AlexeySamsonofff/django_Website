@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Quality{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Open to the Trade</h1>
+				<span>Studios | Photographers | Shops and many more</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Portfolio and Resources</li>
+					<li class="breadcrumb-item active" aria-current="page">Trade Partners</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+	<!-- Content		============================================= -->
+    <section id="content">
+
+			<div class="content-wrap">
+
+
+				<!-- Quality Canvas Roll
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="col_two_third bottommargin-sm ">
+
+						<h3>Our Trade Customers</h3>
+						<p>We work with professional, semi-professional photographers and trade customers. Our clients are interior designers, shops, resellers, estate agents, schools. Professional photographers can rely on high quality products which widen their product choice for end customers. We can colour match any paint swatches on canvas prints and other media.</p>
+
+						<h3>Why Use The Canvas Print Studio?</h3>
+						<p>
+							<ul class="iconlist">
+								<li><i class="icon-ok"></i>We offer great quality, prices and service</li>
+								<li><i class="icon-ok"></i>No minimum order or monthly spend</li>
+								<li><i class="icon-ok"></i>Fair pricing with customer focused service.</li>
+							</ul>
+						</p>
+
+					</div>
+
+					<div class="col_one_third bottommargin-sm col_last">
+
+						<img src="{% static '/images/shop/brora.png' %}" alt="Open Imagination">
+
+					</div>
+				</div>
+
+				<div class="divider divider-center"><a href="#" data-scrollto="#header"><i class="icon-chevron-up"></i></a></div>
+
+				<!-- Quality Stretcher Bars
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="col_two_third bottommargin-sm col_last ">
+
+						<h3>Quality Components, Quality Products...</h3>
+						<p>
+							<ul class="iconlist">
+								<li><i class="icon-ok"></i>Choice of giclee standard 405gsm polycotton canvas, giclee Premium Archival Quality canvas</li>
+								<li><i class="icon-ok"></i>All canvas prints varnished with Glamour II giclee varnish at no extra cost, (canvas varnish advantages)</li>
+								<li><i class="icon-ok"></i>Premium quality European Pine stretcher bars (knotless/smooth/perfect quality)</li>
+								<li><i class="icon-ok"></i>Colour calibrated workflow with canvas proofs whenever required.</li>
+							</ul>
+						</p>
+
+						<h3>Ordering</h3>
+						<p>Our website ordering system only works with .jpg and .tif files. However we encourage our customers to use lossless compression file formats, i.e. .tif or .psd files for canvas and photo printing.
+Larger files can be sent to us using <a href="../_custom_order/">custom upload</a> page.
+You can also use .jpg files for placing the order and upload lossless files via above link.
+
+We can also process your files in 16-bit workflow if necessary. Canvas media is more forgiving than photo papers and there isn't much visual difference above 200 dpi. We suggest to supply the files with at least 100 dpi effective resolution (not upscaled). Whenever you have any doubts we can produce proofs of image section at 1:1 scale, free of charge.</p>
+
+					</div>
+
+					<div class="col_one_third bottommargin-sm">
+
+						<img src="{% static '/images/shop/trade.png' %}" alt="Open Imagination">
+
+					</div>
+				</div>
+
+				<div class="divider divider-center"><a href="#" data-scrollto="#header"><i class="icon-chevron-up"></i></a></div>
+
+				<!-- Quality Canvas Roll
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="col_two_third bottommargin-sm ">
+
+						<h3>Request a FREE* Sample Pack</h3>
+						<p>Please add the sample pack to your shopping cart to apply for a  trade discount and to receive a <span class="highlight">free sample pack*</span> of canvas.</p>
+
+						<p>
+							<ul class="iconlist">
+								<li><i class="icon-ok"></i>*£5 is refunded with first order</li>
+								<li><i class="icon-ok"></i>No minimum order</li>
+								<li><i class="icon-ok"></i>Free delivery</li>
+								<li><i class="icon-ok"></i>Conditions apply for trade consideration</li>
+							</ul>
+						</p>
+
+						<button type="button" data-notify-type="error" data-notify-msg="<i class=icon-remove-sign></i> Choose an Image. Please Try Again!"  id="btnSample" class="button button-desc button-3d button-rounded button-canvasblue center"></i>Order Now</button>
+
+					</div>
+
+					<div class="col_one_third bottommargin-sm col_last">
+
+						<img src="{% static '/images/shop/sample.png' %}" alt="Open Imagination">
+
+					</div>
+				</div>
+
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+    {% endblock %}
+
+{% block jquery %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#portfolio').addClass("current");
+	});
+</script>
+{% endblock %}

@@ -1,0 +1,287 @@
+
+
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Orders{% endblock %}
+
+
+{% block head_scripts %}
+<link rel="stylesheet" href="{% static '/css/components/bs-filestyle.css' %}" type="text/css"
+          xmlns:cart="http://www.w3.org/1999/xhtml" xmlns:cart="http://www.w3.org/1999/xhtml"/>
+        <link rel="stylesheet" href="{% static '/css/components/responsive.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static '/css/spectrum.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static '/css/spectrum.min.css' %}" type="text/css" />
+        <link rel="stylesheet" href="{% static '/css/docs.css' %}" type="text/css" />
+        <!-- //////////////////////////////////////////////// -->
+        <style>
+            
+                .range {
+                  position: relative;
+                  width: 230px;
+                }
+                .range input[type="range"] {
+                  appearance: none;
+                  padding: 0;
+                  width: 100%;
+                  height: 22px;
+                  cursor: pointer;
+                  display: block;
+                }
+                .range input::-webkit-slider-runnable-track {
+                  box-sizing: border-box;
+                  width: 100%;
+                  height: 4px;
+                  background: #e6e6e6;
+                  border-radius: 100px;
+                  margin: 11px 0;
+                }
+                .range input::-webkit-slider-thumb {
+                  box-sizing: border-box;
+                  box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.5);
+                  border: 6px solid #fff;
+                  height: 24px;
+                  width: 24px;
+                  border-radius: 100px;
+                  background: #333940;
+                  cursor: pointer;
+                  appearance: none;
+                  transform: translateY(-50%);
+                  margin-top: 2px;
+                }
+                .range input{
+                        border-radius: 0;
+                        border: 0;
+                        margin-bottom: 0px;
+                }
+                
+          </style>
+        <!-- //////////////////////////////////////////////// -->
+{% endblock %}
+
+{% block content %}
+<div class="clear"></div>
+<!-- Page Title -->
+<section id="page-title">
+        <div class="container clearfix">
+                <h1>Customise your Canvas</h1>
+                <span>Use the tool below to perfect your image</span>
+                <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Canvas Print Order</li>
+                </ol>
+        </div>
+</section>
+<!-- Page Title End -->
+
+<!-- Content -->
+<section id="content">
+        <div class="content-wrap">
+                <div class="container clearfix">
+                        <div class="line d-block d-md-none"></div>
+                                <!-- Step Process 1,2 ,3 ,4 ,5 -->
+                        <ul class="process-steps process-5 clearfix">
+                                        <li>
+                                                <a href="#" class="i-bordered i-circled divcenter icon-download-alt"></a>
+                                                <h5>Upload Image</h5>
+                                        </li>
+                                        <li class="active">
+                                                <a href="#" class="i-bordered i-circled divcenter icon-pencil2"></a>
+                                                <h5>Customise Image</h5>
+                                        </li>
+                                        <li>
+                                                <a href="#" class="i-bordered i-circled divcenter icon-shopping-cart"></a>
+                                                <h5>Review Cart</h5>
+                                        </li>
+                                        <li>
+                                                <a href="#" class="i-bordered i-circled divcenter bgcolor icon-like"></a>
+                                                <h5>Complete Payment</h5>
+                                        </li>
+                                        <li>
+                                                <a href="#" class="i-bordered i-circled divcenter icon-ok"></a>
+                                                <h5>Order Complete</h5>
+                                        </li>
+                                </ul>
+                        <div id="orderStep2" >
+                                <!-- Image Customisation -->
+                                <div class="col_one_third">
+                                        <div class="card product-meta nomargin">
+                                                <div class="card-body nomargin">
+                                                        <div class="product-price"><ins>Canvas Sizes</ins></div><br>
+                                                        <div class="col_half">
+                                                                <div id="divWidth"><strong>Width:</strong></div>
+                                                                <select class="form-control" data-width="fit" data-size="7" id="cmbWidthOrder">
+                                                                        {% for size in queryset %}
+                                                                                <option>{{ size.Inch }}</option>
+                                                                        {% endfor %}
+                                                                </select>
+                                                        </div>
+                                                        <div class="col_half col_last">
+                                                                <div id="divHeight"><strong>Height:</strong></div>
+                                                                <select class="form-control" data-width="fit" data-size="7" id="cmbHeightOrder">
+                                                                        {% for size in queryset %}
+                                                                                <option>{{ size.Inch }}</option>
+                                                                        {% endfor %}
+                                                                </select>
+                                                        </div>
+                                                        <div class="product-price"><ins>Canvas Style</ins></div><br>
+                                                        <div class="col_half">
+                                                                <div id="divSideWrap"><strong>Side Wrap:</strong></div>
+                                                                <select class="form-control" data-width="fit" data-size="7" id="cmbWrap">
+                                                                        <option value="Photo">Photo</option>
+                                                                        <option value="Mirror">Mirror</option>
+                                                                        <option value="Colour">Colour</option>
+                                                                </select>
+                                                                <br>
+                                                                <div id="txtColorPicker">
+                                                                        <input type='text' class='startEmpty' value='' id="colorPicker" />
+                                                                </div>
+                                                        </div>
+                                                        <div class="col_half col_last">
+                                                                <div id="divImageColor"><strong>Image Colour:</strong></div>
+                                                                <select class="form-control" data-width="fit" data-size="7" id="cmbColor">
+                                                                        <option>Original</option>
+                                                                        <option>Sepia</option>
+                                                                        <option>Black and White</option>
+                                                                </select>
+                                                        </div>
+
+                                                        <div class="clear"></div>
+
+                                                        <div class="product-price"><ins>Material</ins></div><br>
+                                                        <div class="col_full">
+                                                                <div class="form-check">
+                                                                        <input class="radio-style" type="radio" name="radMaterial" id="Std" value="Standard" checked>
+                                                                        <label class="radio-style-3-label" for="Std">Standard</label>
+                                                                </div>
+
+                                                                <div class="form-check">
+                                                                        <input class="radio-style" type="radio" name="radMaterial" id="Prem" value="Premium" >
+                                                                        <label class="radio-style-3-label" for="Prem">Premium</label>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col_full">
+                                                                <center><h4 class="pricing-price" id="Price"></h4></center>
+                                                        </div>
+
+
+
+                                                        <form action="{% url "cart:cart_add" %}" method="post">
+                                                                <div class="col_full">
+                                                                        <strong>Notes:</strong><br>
+                                                                        {{ form.canvasNotes }}
+                                                                </div>
+                                                                <div class="col_half">
+                                                                        <div id="proofcost"><strong>Proof:</strong></div>
+                                                                        {{ form.canvasProof }}
+                                                                </div>
+                                                                <div class="col_half col_last">
+                                                                        <strong>Quantity:</strong>
+                                                                        {{ form.canvasImg }}
+                                                                        {{ form.quantity }}
+                                                                        {{ form.canvasCost }}
+                                                                        {{ form.canvasWidth }}
+                                                                        {{ form.canvasHeight }}
+                                                                        {{ form.canvasWrap }}
+                                                                        {{ form.canvasMaterial }}
+                                                                        {% csrf_token %}
+                                                                </div>
+                                                                <div class="col_full">
+                                                                        <button id="btnStep3" type="submit" class="button button-desc button-3d button-rounded button-canvasblue center">Add to Cart</button>
+                                                                </div>
+                                                        </form>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="col_two_third col_last">
+                                        
+                                             <canvas id="myCanvas">
+                                                
+                                                    <img src="{{ file }}" id="myImage"/>
+                                                
+                                             </canvas>   
+                                       
+                                        
+                                        <div style="margin-left: 80px;width: 600px;">
+                                                <div id="zoomin" style="float: left;"><img src="{%static '/images/minus.png'%}" style="cursor:pointer;float: right;margin-right: 10px;height: 40px;"></img></div>
+                                                <div style="float: left;">
+                                                                <div class="range" style="margin-top: 10px;">
+                                                                        <input name="range" type="range" min="100" step="100" max="10000" id="oorange">
+                                                                </div>
+                                                </div>
+                                                <div style="float: left;">
+                                                        <div id="zoomout" style="float: left;margin-left: 20px;"><img src="{% static '/images/plus.png' %}"  style="cursor:pointer;float: right;margin-right: 30px;height: 40px;"></img></div>
+                                                        <div id="imgrotateL" class="imgrotateL"  style="float: left;"><img src="{% static '/images/rotateL.png' %}"  style="cursor:pointer;float: right;margin-right: 30px;height: 40px;" ></img></div>
+                                                        <div id="imgrotateR" style="float: left;"><img src="{% static '/images/rotateR.png' %}"  style="cursor:pointer;float: right;margin-right: 30px;height: 40px;"></img></div>
+                                                        <div id="imgflip" style="float: left;"><img src="{% static '/images/filp.png' %}" style="cursor:pointer;float: right;margin-right: 30px;height: 40px;" id="flip"></img></div>
+                                                </div>
+                                                
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+        <div class="configurator-renderer">
+                <pre id="sp-options">$('#color-picker').spectrum();</pre>
+        </div>
+
+        <!-- NOT USED ONLY FOR DEBUG -->
+        <input type="hidden" value="{{ file }}" id="filename" />
+        <input type="hidden" value="" id="Cost" />
+        <input type="hidden" value="{{ canvasWidth }}" id="canvasWidth">
+        <input type="hidden" value="{{ canvasHeight }}" id="canvasHeight">
+        <input type="hidden" value="Photo" id="canvasWrap">
+        <input type="hidden" value="Standard" id="canvasMaterial">
+</section>
+        <!-- #content end -->
+{% endblock %}
+{% block jquery %}
+        <script src="{% static '/js/ajax/PricesAndSizes.js' %}"></script>
+        <script src="{% static '/js/ajax/ImageCanvas.js' %}"></script>
+
+
+        <script src="{% static '/js/spectrum.min.js' %}"></script>
+        <script src="{% static '/js/spectrum.js' %}"></script>
+        <script src="{% static '/js/toc.js' %}"></script>
+        <script src="{% static '/js/docs.js' %}"></script>
+        <script src="{% static '/js/highlight/highlight.pack.js' %}"></script>
+
+
+        <script src="{% static '/js/Modal.js' %}"></script>
+        <script type="text/javascript">
+                
+                $(document).ready(function() {
+
+                       
+
+                        // <!-- Set Interface Dynamically -->
+
+                        $("input[name*='canvasImg']").val($("#filename").val());
+                        $("input[name*='canvasWidth']").val({{ canvasWidth }});
+                        $("input[name*='canvasHeight']").val({{ canvasHeight }});
+
+                        $('#order').addClass("current");
+
+                        var originCanvasWidth = $("#canvasWidth").val();
+                        var originCanvasHeight = $("#canvasHeight").val();
+                        $("#cmbWidthOrder").val(originCanvasWidth);
+                        $("#cmbHeightOrder").val(originCanvasHeight);
+
+                        var cmbWidth = $("#cmbWidthOrder option:selected").val();
+                        var cmbHeight = $("#cmbHeightOrder option:selected").val();
+
+                        console.log(cmbWidth);
+
+                        updateCost(cmbWidth, cmbHeight, 'Standard');
+
+                        // <!-- End Set Interface Dynamically -->
+
+                        CalculateScale(cmbWidth, cmbHeight, $('#filename').val());
+                        $('#txtColorPicker').hide();
+
+                        
+                });
+        </script>
+{% endblock %}
+
+

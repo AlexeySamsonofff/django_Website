@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Quality{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Sizes and Prices</h1>
+				<span>Free Delivery | Proofs Available</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Canvas Sizes and Prices</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+	<!-- Content		============================================= -->
+    <section id="content">
+
+			<div class="content-wrap">
+
+				<!--
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="row">
+
+						<!-- Inches or CMs
+						============================================= -->
+						<div class="col_one_fourth">
+							<div class="form-check">
+								<input class="radio-style" type="radio" name="radSize" id="Inch" value="Inch" checked>
+								<label class="radio-style-3-label" for="Inch">Inch</label>
+
+							</div>
+						</div>
+
+						<div class="col_one_fourth">
+							<div class="form-check">
+								<input class="radio-style" type="radio" name="radSize" id="CM" value="CM" >
+								<label class="radio-style-3-label" for="CM">CM</label>
+							</div>
+						</div>
+
+						<div class="col_one_fourth"><h5>Standard Stretched Canvas</h5></div>
+						<div class="col_one_fourth col_last"><h5>Premium Stretched Canvas</h5></div>
+
+						<!-- Sizes in Combobox
+						============================================= -->
+						<div class="col_one_fourth">
+
+							<div id="divWidth">Width<br /><br />
+								<select class="form-control" data-width="fit" data-size="7" id="cmbWidth">
+									{% for size in queryset %}
+										<option>{{ size.Inch }}</option>
+									{% endfor %}
+								</select>
+							</div>
+
+
+						</div>
+
+						<div class="col_one_fourth">
+							<div id="divHeight">Height<br /><br />
+								<select class="form-control" data-width="fit" data-size="7" id="cmbHeight">
+								{% for size in queryset %}
+										<option>{{ size.Inch }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+
+						<div class="col_one_fourth">
+							<div class="pricing-price" id="StandardPrice">
+
+							</div>
+						</div>
+
+						<div class="col_one_fourth col_last">
+							<div class="pricing-price" id="PremiumPrice">
+
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col_full">
+
+						<h3>What's Important?</h3>
+						<p>
+							<ul class="iconlist">
+							<li><i class="icon-ok"></i>Type of canvas: many companies use cheap polyester, which has a plasticky look and feel. We use quality branded canvas media (more info below).</li>
+							<li><i class="icon-ok"></i>Original inks: many companies also offer cheap prices and cut costs by using third party inks. Not only are they inconsistent, but they will fade much sooner than Original inks that will last 70 years or more.</li>
+							<li><i class="icon-ok"></i>Stretcher bars: again, we see that there are lots of companies offering budget bars which will warp & distort easily. We use Premium European Pine bars with wooden wedges.</li>
+							<li><i class="icon-ok"></i>Canvas varnish: most companies don't even bother to varnish their canvas. It is the only way to create a product which will last and not get damaged easily - we varnish all our canvases at no extra cost!</li>
+							<li><i class="icon-ok"></i>Colour calibration: a vital part of the process to make sure your images are reproduced in the most accurate way.
+							Neatly finished on the back - all of our canvasses are hand finished with backing tape/hangers at no extra cost.</li>
+							</ul>
+						</p>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+    {% endblock %}
+
+{% block jquery %}
+
+<script src="{% static '/js/ajax/PricesAndSizes.js' %}"></script>
+<script src="{% static '/js/Modal.js' %}"></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		//populateCmbDimensions("cmbWidth", "Inch");
+		updateCost(8, 8);
+		$('#prices').addClass("current");
+
+
+	});
+
+
+</script>
+{% endblock %}
+

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Orders{% endblock %}
+
+
+{% block head_scripts %}
+	<link rel="stylesheet" href="{% static '/css/components/bs-filestyle.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/components/responsive.css' %}" type="text/css" />
+{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Start Your Order</h1>
+				<span>Use the form below to upload any large files</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Canvas Print Order</li>
+				</ol>
+			</div>
+		</section>
+		<!-- Page Title End -->
+
+	<!-- Content -->
+    <section id="content">
+		<div class="content-wrap">
+			<div class="container clearfix">
+
+				<div id="orderStep1" >
+					<!-- Upload Form -->
+					<div class="accordion accordion-border clearfix">
+						<div class="toggle">
+							<div class="acctitle" id="accStepOne">
+									<i class="acc-closed icon-ok-circle"></i>
+									<i class="acc-open icon-remove-circle"></i>
+									<label>Choose a file to Upload:</label>
+								</div>
+
+								<div class="acc_content clearfix">
+									<div class="col_full">
+										<button id="btnTest" name="Mail" type="submit" class="button button-desc button-3d button-rounded button-canvasblue center">
+											Send Test</button>
+									</div>
+
+									<div class="col_full">
+										<button id="btnMail" name="Mail" type="submit" class="button button-desc button-3d button-rounded button-canvasblue center">
+											Send to List</button>
+									</div>
+								</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Content End -->
+    {% endblock %}
+{% block jquery %}
+	<script src="{% static '/js/ajax/Newsletter.js' %}"></script>
+	<script src="{% static '/js/components/bs-filestyle.js' %}"></script>
+{% endblock %}
+

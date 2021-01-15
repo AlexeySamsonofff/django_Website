@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Orders{% endblock %}
+
+
+{% block head_scripts %}
+	<link rel="stylesheet" href="{% static '/css/components/bs-filestyle.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/components/responsive.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/spectrum.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/spectrum.min.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static '/css/docs.css' %}" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<div class="clear"></div>
+<!-- Page Title -->
+<section id="page-title">
+	<div class="container clearfix">
+		<h1>Your Shopping Cart</h1>
+		<span>View your customised Canvas' in your very own cart</span>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Canvas Print Order</li>
+		</ol>
+	</div>
+</section>
+<!-- Page Title End -->
+
+<!-- Content -->
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="line d-block d-md-none"></div>
+				<!-- Step Process 1,2 ,3 ,4 ,5 -->
+			<ul class="process-steps process-5 clearfix">
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-download-alt"></a>
+						<h5>Upload Image</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-pencil2"></a>
+						<h5>Customise Image</h5>
+					</li>
+					<li class="active">
+						<a href="#" class="i-bordered i-circled divcenter icon-shopping-cart"></a>
+						<h5>Review Cart</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter bgcolor icon-like"></a>
+						<h5>Complete Payment</h5>
+					</li>
+					<li>
+						<a href="#" class="i-bordered i-circled divcenter icon-ok"></a>
+						<h5>Order Complete</h5>
+					</li>
+				</ul>
+			<div id="orderStep3">
+				{% if CartCount > 0 %}
+				<div class="table-responsive">
+					<table class="table cart" id="ShoppingCart">
+						<thead>
+							<tr>
+								<th class="cart-product-remove">
+									<a href="{% url "cart:cart_empty" %}" class="remove" title="Remove this item">
+											<i class="icon-trash2"></i>
+										</a>
+								</th>
+								<th class="cart-product-thumbnail">&nbsp;</th>
+								<th class="cart-product-name">Canvas</th>
+								<th class="cart-product-price">Unit Price</th>
+								<th class="cart-product-quantity">Quantity</th>
+								<th class="cart-product-subtotal">Total</th>
+							</tr>
+						</thead>
+						<tbody>
+
+
+							{% for item in cart %}
+								<tr class="cart_item">
+									<td class="cart-product-remove">
+										<a href="{% url "cart:cart_remove" item.Key_ID %}" class="remove" title="Remove this item">
+											<i class="icon-trash2"></i>
+										</a>
+									</td>
+
+									<td class="cart-product-thumbnail">
+										<a href="#">
+											<img width="64" height="64" src="{{ item.Img }}" alt="Pink Printed Dress">
+										</a>
+									</td>
+
+									<td class="cart-product-name">
+										{{ item.canvas }}
+										{% if item.proof == '1' %}
+											<br /><i>Including proof</i>
+										{% endif %}
+									</td>
+
+									<td class="cart-product-price">
+										<span class="amount">£{{ item.cost|floatformat:"2" }}</span>
+									</td>
+
+									<td class="cart-product-quantity">
+										<div class="quantity clearfix">
+											<form action="{% url "cart:cart_add"  %}" method="post" id="form-qty">
+												<input type="submit" value="-" class="minus"
+													onclick="document.getElementById('form-qty').submit();">
+												{{ item.update_quantity_form.quantity }}
+												<input type="submit" value="+" class="plus"
+													onclick="document.getElementById('form-qty').submit();">
+											</form>
+										</div>
+									</td>
+
+									<td class="cart-product-subtotal">
+										<span class="amount">£{{ item.linetotal|floatformat:"2" }}</span>
+									</td>
+								</tr>
+							{% endfor %}
+
+							<tr class="cart_item">
+								<td colspan="6">
+									<div class="row clearfix">
+										<div class="col-lg-6 col-6 nopadding">
+											<form action="{% url "coupons:apply" %}" method="post">
+												<div class="col-lg-6 col-6 nopadding">
+													<div class="row">
+														<div class="col-lg-8 col-7">
+															{{ coupon_apply_form.code }}
+														</div>
+														<div class="col-lg-4 col-5">
+															<button type="submit" class="button button-3d button-black nomargin">Apply Coupon</button>
+														</div>
+														{% csrf_token %}
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="col-lg-6 col-6 nopadding">
+											<a href="{% url 'image_upload' %}" class="button button-3d nomargin fright">Add Another Canvas</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="row clearfix">
+					<div class="col-lg-6 clearfix"></div>
+
+					<div class="col-lg-6 clearfix">
+						<p>Cart No: <span class="highlight">{{ order_no }}</span></p>
+
+						<div class="table-responsive">
+							<table class="table cart">
+								<tbody>
+
+									<tr class="cart_item">
+										<th class="cart-product-name">
+											Subtotal
+										</th>
+
+										<th class="cart-product-name">
+											<span class="amount">£{{ cart.get_total_price|floatformat:"2" }}</span>
+
+										</th>
+									</tr>
+
+									{% if cart.coupon %}
+										<tr class="cart_item">
+											<th class="cart-product-name">
+												<strong>
+													"{{ cart.coupon.code }}" coupon
+													({{ cart.coupon.discount }}% off)
+												</strong>
+											</th>
+
+											<th class="cart-product-name">
+												<span class="amount"><strong>- £{{ cart.get_discount|floatformat:"2" }}</strong></span>
+												<a href="{% url "coupons:remove" %}">
+													<span class="badge badge-pill badge-danger">
+														Remove
+													</span>
+												</a>
+											</th>
+										</tr>
+									{% endif %}
+
+									<tr class="cart_item">
+										<th class="cart-product-name">
+											<strong>Shipping</strong>
+										</th>
+
+										<th class="cart-product-name">
+											<span class="amount">Free Delivery</span>
+										</th>
+									</tr>
+
+
+									<tr class="cart_item">
+										<th class="cart-product-name">
+											<strong>Total</strong>
+										</th>
+
+										<th class="cart-product-name">
+											<span class="amount color lead"><strong>£{{ cart.get_total_price_after_discount|floatformat:"2" }}</strong></span>
+
+										</th>
+									</tr>
+
+								</tbody>
+							</table>
+						</div>
+
+						<div class="col-lg-12 col-12 nopadding">
+							<a href="{% url "orders:order_create" %}" class="button button-3d notopmargin fright">
+								Proceed to Checkout
+							</a>
+						</div>
+					</div>
+				</div>
+
+				{% else %}
+					<h5>Your Shopping Cart is <span class="badge badge-warning">Empty</span></h5>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+
+</section>
+	<!-- #content end -->
+{% endblock %}
+{% block jquery %}
+	<script src="{% static '/js/ajax/ShoppingCart.js' %}"></script>
+	<script src="{% static '/js/Modal.js' %}"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+		});
+	</script>
+{% endblock %}
+

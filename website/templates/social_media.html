@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Quality{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Follow us</h1>
+				<span>Studios | Photographers | Shops and many more</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Portfolio and Resources</li>
+					<li class="breadcrumb-item active" aria-current="page">Social Media</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+	<!-- Content		============================================= -->
+    <section id="content">
+
+			<div class="content-wrap">
+
+
+				<!-- Quality Canvas Roll
+				============================================= -->
+				<div class="container clearfix">
+
+					<div id="curator-feed-default-feed-layout"></div>
+
+				</div>
+
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+    {% endblock %}
+
+{% block jquery %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#portfolio').addClass("current");
+	});
+</script>
+
+<script type="text/javascript">
+/* curator-feed-default-feed-layout */
+(function(){
+var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
+i.src = "https://cdn.curator.io/published/9b9c1425-4e83-40fd-a192-58a458284add.js";
+e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
+})();
+</script>
+{% endblock %}

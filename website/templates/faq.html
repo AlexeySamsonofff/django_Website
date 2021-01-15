@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Quality{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>FAQs</h1>
+				<span>All your questions answered in one place...</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Portfolio and Resources</li>
+					<li class="breadcrumb-item active" aria-current="page">Frequently Asked Questions</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+	<!-- Content		============================================= -->
+    <section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<h3>Some of your Questions:</h3>
+
+					<p>We have captured your most frequently asked questions and listed them below:</p>
+
+					<div class="divider"><i class="icon-circle"></i></div>
+
+						<div class="col_half nobottommargin">
+
+							{% for cat in cat %}
+								{% if forloop.counter|divisibleby:2 %}
+									<h4>
+								{% else %}
+									<h4 class="topmargin">
+								{% endif %}
+									{{ cat.Category }} <small>(0)</small></h4>
+
+								{% for faq in faq %}
+									{% if faq.Category_id == cat.id %}
+										<div class="accordion accordion-border clearfix" data-state="closed">
+											<div class="acctitle"><i class="acc-closed icon-question-sign"></i>
+												<i class="acc-open icon-question-sign"></i>
+												{{ faq.Question }}
+											</div>
+											<div class="acc_content clearfix">
+												{{ faq.Answer }}
+											</div>
+										</div>
+									{% endif %}
+								{% endfor %}
+
+								{% if forloop.counter|divisibleby:2 %}
+									</div><div class="col_half nobottommargin col_last">
+								{% endif %}
+
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+
+    {% endblock %}
+
+{% block jquery %}
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#portfolio').addClass("current");
+	});
+</script>
+{% endblock %}

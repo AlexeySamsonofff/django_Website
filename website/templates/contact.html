@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Contact Us{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Contact The Canvas Print Studio</h1>
+				<span>Get in Touch with Us</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Contact Us</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Google Map
+		============================================= -->
+		<section id="google-map" class="gmap slider-parallax"></section>
+
+		<!-- Content		============================================= -->
+    	<section id="content">
+
+			<div class="content-wrap">
+
+				<!--
+				============================================= -->
+				<div class="container clearfix">
+
+					<div class="postcontent nobottommargin" id="contactForm">
+
+						{% if status == True %}
+							<h3>Email has been sent</h3>
+							<div class="alert alert-success">
+							  <i class="icon-gift"></i><strong>Thank you!</strong> We will respond to your enquiry very shortly.
+							</div>
+						{% else %}
+						<h3>Send us an Email</h3>
+
+						<div class="contact-widget">
+
+							<div class="contact-form-result"></div>
+
+							<form action="." method="post" class="order-form" name="frmContact" id="frmContact">
+
+								{% csrf_token %}
+
+								<div class="col_one_third">
+									{{ form.Name }}
+								</div>
+
+								<div class="col_one_third">
+									{{ form.Email }}
+								</div>
+
+								<div class="col_one_third col_last">
+									{{ form.Phone }}
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="col_full">
+									{{ form.Subject }}
+								</div>
+
+								<div class="clear"></div>
+
+								<div class="col_full">
+									{{ form.Message }}
+								</div>
+
+								<div class="col_full hidden">
+									<input type="text" id="6" name="template-contactform-botcheck" value="" class="sm-form-control" />
+								</div>
+
+								<div class="col_full">
+
+									<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+									<div class="g-recaptcha" data-sitekey="6LfijgUTAAAAACPt-XfRbQszAKAJY0yZDjjhMUQT"></div>
+
+								</div>
+
+								<div class="col_full">
+									<input class="button button-3d nomargin" type="submit" id="btnSendMessage" name="template-contactform-submit" value="Send Message"></input>
+								</div>
+							</form>
+
+						</div>
+						{% endif %}
+					</div>
+
+					<!-- Sidebar
+					============================================= -->
+					<div class="sidebar col_last nobottommargin">
+
+						<address>
+							<strong>Office:</strong><br>
+							34 Staddlestone Circle, Saxon Gate<br>
+							Hereford, UK HR2 6SB<br>
+						</address>
+						<abbr title="Phone Number"><strong>Phone:</strong></abbr> (44) 7917 800 479<br>
+						<abbr title="Email Address"><strong>Email:</strong></abbr> design@thecanvasprintstudio.co.uk
+
+
+						<div class="widget noborder notoppadding">
+
+							<a href="#" class="social-icon si-small si-dark si-facebook">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-dark si-twitter">
+								<i class="icon-twitter"></i>
+								<i class="icon-twitter"></i>
+							</a>
+
+							<a href="#" class="social-icon si-small si-dark si-instagram">
+								<i class="icon-dribbble"></i>
+								<i class="icon-dribbble"></i>
+							</a>
+
+						</div>
+
+					</div><!-- .sidebar end -->
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+    {% endblock %}
+
+{% block jquery %}
+	<script src="{% static '/js/Modal.js' %}"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#portfolio').addClass("current");
+
+			$('form').submit(function(e){
+				e.preventDefault();
+				error = false;
+
+				if ( checkForm(5) == true ) {
+					showNotification(e, "Form Error", "Please enter missing details!", "warning", "btn-error", "OK");
+					error = true;
+				}
+
+				if (error == false)
+					document.forms["frmContact"].submit();
+			});
+
+			function checkForm(k){
+				for (i=0; i<k; i++)
+					if ( $('#' + i).val() == '' )
+						return true
+			}
+
+		});
+	</script>
+
+	<script>
+		function myMap() {
+			var mapProp= {
+			  center:new google.maps.LatLng(52.0388, -2.7153),
+			  zoom:18,
+			  disableDefaultUI:false,
+			  mapTypeControl:false,
+			  streetViewControl:false,
+			  panControl:false,
+			};
+			var map = new google.maps.Map(document.getElementById("google-map"),mapProp);
+		}
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBREdY0UPTD5WTKuHlZ90IrpiXT2zK_0_k&callback=myMap"></script>
+{% endblock %}
+
+

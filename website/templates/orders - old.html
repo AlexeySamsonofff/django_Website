@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Canvas Orders{% endblock %}
+
+    {% block content %}
+<div class="clear"></div>
+
+		<!-- Page Title
+		============================================= -->
+		<section id="page-title">
+			<div class="container clearfix">
+				<h1>Start Your Order</h1>
+				<span>Use the form below to upload any large files</span>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Canvas Print Order</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+	<!-- Content		============================================= -->
+    <section id="content">
+
+		<div class="content-wrap">
+
+			<div class="container clearfix">
+
+				<div class="line d-block d-md-none"></div>
+
+					<!-- Step Process 1,2 ,3 ,4 ,5
+					============================================= -->
+					<ul class="process-steps process-4 clearfix">
+						<li class="active">
+							<a href="#ptab1" class="i-circled i-bordered i-alt divcenter">1</a>
+							<h5>Upload Image</h5>
+						</li>
+						<li>
+							<a href="#ptab2" class="i-circled i-bordered i-alt divcenter">2</a>
+							<h5>Choose Size</h5>
+						</li>
+						<li>
+							<a href="#ptab3" class="i-circled i-bordered i-alt divcenter">3</a>
+							<h5>Complete Payment</h5>
+						</li>
+						<li>
+							<a href="#ptab4" class="i-circled i-bordered i-alt divcenter">4</a>
+							<h5>Complete Payment</h5>
+						</li>
+
+					</ul>
+
+					<div id="orderStep1" >
+						<!-- Upload Form
+						============================================= -->
+						<form method = "post" enctype="multipart/form-data" class="accordion accordion-border clearfix">
+							{% csrf_token %}
+							{{ form.as_p }}
+							<button type="submit">Upload</button>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+	</section><!-- #content end -->
+
+
+
+    {% endblock %}
+
+{% block jquery %}
+
+<script src="{% static '/js/ajax/PricesAndSizes.js' %}"></script>
+<script src="{% static '/js/Modal.js' %}"></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		updateCost(8, 8);
+		$('#order').addClass("current");
+	});
+
+</script>
+{% endblock %}
+
